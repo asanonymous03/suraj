@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suraj | Home</title>
+    <meta name="description" content="Suraj — Web Developer, Blogger & Affiliate Marketer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+         :root {
+            --bg: #0a0a0b;
+            --card: #121216;
+            --text: #e7e7ea;
+            --muted: #a0a0ad;
+            --brand: #10b978;
+            --brand-2: #00d4ff;
+            --accent: #ffd166;
+            --border: #25252c;
+            --glow: 0 0 8px rgba(108, 124, 255, .8), 0 0 16px rgba(0, 212, 255, .7);
+            --glass: color-mix(in oklab, var(--card) 70%, transparent);
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial;
+            color: var(--text);
+            background: radial-gradient(1200px 600px at 10% -10%, rgba(0, 212, 255, .07), transparent 60%), radial-gradient(800px 500px at 90% -20%, rgba(108, 124, 255, .08), transparent 50%), var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            width: min(1100px, 92%);
+            margin-inline: auto
+        }
+        /* NAV */
+        
+        .nav-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 80;
+            backdrop-filter: blur(10px);
+            background: color-mix(in oklab, var(--bg) 88%, transparent);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .8rem 0
+        }
+        
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-weight: 800
+        }
+        
+        .brand-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            color: #020203;
+            box-shadow: var(--glow);
+            transform-origin: center;
+            animation: badgePulse 2.2s infinite;
+        }
+        
+        @keyframes badgePulse {
+            0% {
+                transform: scale(1)
+            }
+            50% {
+                transform: scale(1.07)
+            }
+            100% {
+                transform: scale(1)
+            }
+        }
+        
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: .6rem
+        }
+        
+        .menu a {
+            padding: .5rem .9rem;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            position: relative;
+            transition: all .25s ease
+        }
+        
+        .menu a:hover {
+            background: var(--glass);
+            border-color: var(--border);
+            box-shadow: var(--glow)
+        }
+        
+        .link-underline::after {
+            content: "";
+            position: absolute;
+            left: .9rem;
+            right: .9rem;
+            bottom: .35rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--brand), var(--brand-2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .28s
+        }
+        
+        .link-underline:hover::after {
+            transform: scaleX(1)
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            color: #020203;
+            font-weight: 700;
+            box-shadow: var(--glow)
+        }
+        
+        .hamb {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            align-items: center;
+            justify-content: center
+        }
+        
+        @media (max-width:820px) {
+            .menu {
+                position: fixed;
+                inset: 64px 0 auto 0;
+                display: grid;
+                gap: .4rem;
+                padding: .6rem;
+                background: color-mix(in oklab, var(--bg) 94%, transparent);
+                border-bottom: 1px solid var(--border);
+                transform: translateY(-120%);
+                transition: transform .25s
+            }
+            .menu.open {
+                transform: translateY(0)
+            }
+            .hamb {
+                display: inline-flex
+            }
+        }
+        
+        section {
+            padding: clamp(56px, 8vw, 100px) 0
+        }
+        
+        .card {
+            background: linear-gradient(180deg, color-mix(in oklab, var(--card) 75%, transparent), color-mix(in oklab, var(--card) 92%, transparent));
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: clamp(18px, 4vw, 32px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .25)
+        }
+        /* HERO */
+        
+        .hero {
+            display: grid;
+            gap: 1rem;
+            text-align: center;
+            animation: fadeIn .9s ease both
+        }
+        
+        .hero h1 {
+            font-size: clamp(28px, 5.2vw, 54px);
+            line-height: 1.05;
+            margin: 0
+        }
+        
+        .hero p {
+            color: var(--muted);
+            font-size: clamp(15px, 2.2vw, 18px);
+            margin: .4rem 0 1rem
+        }
+        
+        .cta-row {
+            display: flex;
+            gap: .8rem;
+            justify-content: center;
+            flex-wrap: wrap
+        }
+        
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: var(--card);
+            transition: box-shadow .25s, transform .25s
+        }
+        /* Extra glow pop-up effect on hover for CTAs */
+        
+        .cta:hover {
+            background: color-mix(in oklab, var(--card) 80%, transparent);
+            box-shadow: 0 0 12px rgba(108, 124, 255, 0.8), 0 0 24px rgba(0, 212, 255, 0.6), 0 0 36px rgba(108, 124, 255, 0.4);
+            transform: translateY(-6px) scale(1.05);
+        }
+        
+        .cta .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-grid;
+            place-items: center;
+            font-size: 14px
+        }
+        /* SECTIONS layout */
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 1.1rem;
+            align-items: start
+        }
+        
+        @media (max-width:920px) {
+            .two-col {
+                grid-template-columns: 1fr
+            }
+        }
+        /* ABOUT */
+        
+        .about-hero {
+            display: flex;
+            gap: 1rem;
+            align-items: center
+        }
+        
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            display: grid;
+            place-items: center;
+            color: #020203;
+            font-weight: 900;
+            font-size: 40px;
+            box-shadow: var(--glow);
+            transform: rotate(-6deg);
+            transition: transform .4s;
+        }
+        
+        .avatar:hover {
+            transform: rotate(0deg) translateY(-6px)
+        }
+        
+        .about-text h2 {
+            margin: 0 0 .4rem;
+            font-size: clamp(22px, 3.6vw, 32px);
+            color: var(--brand-2)
+        }
+        
+        .pill {
+            display: inline-flex;
+            gap: .5rem;
+            align-items: center;
+            padding: .35rem .6rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(108, 124, 255, .12), rgba(0, 212, 255, .06));
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-weight: 600
+        }
+        /* BLOG */
+        
+        .post {
+            margin-bottom: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, color-mix(in oklab, var(--card) 90%, transparent), var(--card));
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .25)
+        }
+        
+        .post h3 {
+            margin: 0 0 .4rem;
+            color: var(--brand-2)
+        }
+        
+        .post p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.6
+        }
+        
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px
+        }
+        /* BLOG editor (FIX: removed stray space before class selector) */
+        
+        .blog-editor {
+            display: flex;
+            flex-direction: column;
+            gap: .6rem
+        }
+        
+        .blog-editor textarea {
+            min-height: 88px;
+            padding: .7rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            resize: vertical
+        }
+        
+        .blog-editor input[type="text"] {
+            padding: .6rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text)
+        }
+        
+        .small {
+            font-size: 13px;
+            color: var(--muted)
+        }
+        /* SOCIAL */
+        
+        .social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem
+        }
+        
+        .social a {
+            font-size: 20px;
+            color: var(--text);
+            transition: transform .25s, box-shadow .25s;
+            padding: .6rem;
+            border-radius: 50%;
+            background: var(--card);
+            border: 1px solid var(--border)
+        }
+        
+        .social a:hover {
+            color: #020203;
+            background: linear-gradient(135deg, var(--brand), var(--brand-2));
+            box-shadow: var(--glow);
+            transform: translateY(-3px)
+        }
+        
+        footer {
+            padding: 36px 0 64px;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            text-align: center
+        }
+        /* small helpers & animations */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px)
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+        
+        .muted {
+            color: var(--muted)
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: .25rem .5rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: linear-gradient(90deg, rgba(108, 124, 255, .06), transparent);
+            font-size: 13px;
+            color: var(--muted)
+        }
+        
+        .blink {
+            animation: blink 1.8s infinite
+        }
+        
+        @keyframes blink {
+            0% {
+                opacity: 1
+            }
+            50% {
+                opacity: .4
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        .wave-hand {
+            display: inline-block;
+            animation: waveHand 1.4s ease-in-out infinite;
+            transform-origin: 70% 70%
+        }
+        
+        @keyframes waveHand {
+            0% {
+                transform: rotate(0deg)
+            }
+            25% {
+                transform: rotate(20deg)
+            }
+            50% {
+                transform: rotate(-10deg)
+            }
+            75% {
+                transform: rotate(20deg)
+            }
+            100% {
+                transform: rotate(0deg)
+            }
+        }
+        /* Light Theme */
+        
+        [data-theme="light"] {
+            --bg: #f9f9fb;
+            --card: #ffffff;
+            --text: #1a1a1d;
+            --muted: #555;
+            --brand: #6c7cff;
+            --brand-2: #00aaff;
+            --accent: #ff9900;
+            --border: #d0d0d5;
+            --glow: 0 0 8px rgba(108, 124, 255, .5), 0 0 16px rgba(0, 212, 255, .3);
+        }
+        /* Blue Theme */
+        
+        [data-theme="blue"] {
+            --bg: #001f3f;
+            --card: #1b7ef0;
+            --text: #e7e7ea;
+            --muted: #b0c4de;
+            --brand: #0074d9;
+            --brand-2: #00d4ff;
+            --accent: #ffdc00;
+            --border: #3a89d8;
+            --glow: 0 0 8px rgba(0, 116, 217, .8), 0 0 16px rgba(0, 212, 255, .7);
+        }
+        /* Green Theme */
+        
+        [data-theme="green"] {
+            --bg: #002f2f;
+            --card: #014d4d;
+            --text: #e7e7ea;
+            --muted: #b2dfdb;
+            --brand: #2ecc40;
+            --brand-2: #00ffcc;
+            --accent: #ffeb3b;
+            --border: #00695c;
+            --glow: 0 0 8px rgba(46, 204, 64, .8), 0 0 16px rgba(0, 255, 204, .7);
+        }
+        /* Theme switcher */
+        
+        .theme-switcher {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+        
+        .theme-btn {
+            background: var(--card);
+            border: none;
+            border-radius: 16px;
+            padding: 18px 22px;
+            width: 100px;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, background 0.3s ease
+        }
+        
+        .theme-btn i {
+            font-size: 15px;
+            margin-bottom: 8px;
+            color: var(--brand-2)
+        }
+        
+        .theme-btn:hover {
+            transform: translateY(-5px) scale(1.07);
+            background: color-mix(in oklab, var(--card) 80%, transparent);
+            box-shadow: var(--glow)
+        }
+        /* SHINE EFFECT */
+        
+        .shiny-text {
+            display: inline-block;
+            font-weight: bold;
+            position: relative;
+            transition: transform 0.3s ease
+        }
+        
+        .shiny-text:hover {
+            transform: translateY(5px);
+            animation: shine 1.5s linear infinite
+        }
+        
+        @keyframes shine {
+            0% {
+                color: #fff;
+                text-shadow: 0 0 5px #ff0, 0 0 10px #ff0, 0 0 20px #ff8000
+            }
+            50% {
+                color: #ffd700;
+                text-shadow: 0 0 10px #ff0, 0 0 20px #ff8000, 0 0 30px #ff4500
+            }
+            100% {
+                color: #fff;
+                text-shadow: 0 0 5px #ff0, 0 0 10px #ff0, 0 0 20px #ff8000
+            }
+        }
+        /* Animated heading letters */
+        
+        .animated-heading {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            color: #fff
+        }
+        
+        .animated-heading span {
+            display: inline-block;
+            animation: colorChange 4s infinite alternate ease-in-out;
+            transition: all 0.3s ease
+        }
+        
+        .animated-heading span:hover {
+            font-family: 'Courier New', monospace;
+            transform: scale(1.1);
+            text-shadow: 0 0 12px rgba(255, 255, 255, .7)
+        }
+        
+        @keyframes colorChange {
+            0% {
+                color: #ff7675
+            }
+            25% {
+                color: #74b9ff
+            }
+            50% {
+                color: #55efc4
+            }
+            75% {
+                color: #ffeaa7
+            }
+            100% {
+                color: #a29bfe
+            }
+        }
+        /* DEAL cards — stronger glow + image pop on hover */
+        
+        .deal-card {
+            background: var(--card);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+            transition: transform .25s, box-shadow .25s
+        }
+        
+        .deal-card img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform .35s
+        }
+        
+        .deal-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 14px rgba(108, 124, 255, .7), 0 0 28px rgba(0, 212, 255, .5), 0 0 42px rgba(108, 124, 255, .35)
+        }
+        
+        .deal-card:hover img {
+            transform: scale(1.04)
+        }
+    </style>
+</head>
+
+<body>
+    <!-- THEME SWITCHER -->
+    <div class="theme-switcher" aria-label="Theme Switcher">
+        <button class="theme-btn dark" onclick="setTheme('dark')"><i class="fa-solid fa-moon" aria-hidden="true"></i><br>Dark</button>
+        <button class="theme-btn light" onclick="setTheme('light')"><i class="fa-solid fa-sun" aria-hidden="true"></i><br>Light</button>
+        <button class="theme-btn blue" onclick="setTheme('blue')"><i class="fa-solid fa-droplet" aria-hidden="true"></i><br>Blue</button>
+        <button class="theme-btn green" onclick="setTheme('green')"><i class="fa-solid fa-leaf" aria-hidden="true"></i><br>Green</button>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav-wrap">
+        <div class="container">
+            <nav aria-label="primary">
+                <a class="brand" href="#home"><span class="brand-badge">S</span><span>Suraj</span> <span class="muted">| Code se Creator</span></a>
+                <button class="hamb" id="hamb" aria-expanded="false" aria-controls="primary-menu" aria-label="Open Menu">☰</button>
+                <div class="menu" id="primary-menu">
+                    <a class="link-underline" href="#home">Home</a>
+                    <a class="link-underline" href="#about">About Me</a>
+                    <a class="link-underline" href="#blog">Blog</a>
+                    <a class="btn" href="#deals">🔥 Deals</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- HOME -->
+    <section id="home" class="container">
+        <div class="card hero">
+            <!-- FIX: valid heading structure (no nested h1) -->
+            <h1 class="animated-heading" aria-label="Namaste I am Suraj">
+                <span>Namaste! I’m 🦋⃟≛⃝ ꜱᴜʀᴀᴊ🍁⃝</span>
+                <span class="wave-hand" aria-hidden="true">👋🏻</span>
+            </h1>
+
+            <p>Web Developer • Blogger • Affiliate Marketer 🚀 — Main simple aur attractive web tools banata hoon jisse log seekh sakein aur earn kar sakein.</p>
+
+            <div class="cta-row">
+                <a class="cta" href="#about"><span class="icon" aria-hidden="true">👀</span> About Me</a>
+                <a class="cta" href="#deals"><span class="icon" aria-hidden="true">🔥</span> Get My Deal</a>
+                <a class="cta" href="#blog"><span class="icon" aria-hidden="true">📝</span> Read Blog</a>
+            </div>
+
+            <div class="social" aria-label="social links">
+                <a href="https://www.instagram.com/un.expected_s?igsh=ZmZ5aDU4amkzdW9v" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://whatsapp.com/channel/0029VbB9JdJ1noz2maJQYe2D" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://facebook.com/yourid" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container">
+        <div class="card">
+            <div class="two-col">
+                <div>
+                    <div class="about-hero">
+                        <div class="avatar" aria-hidden="true">S</div>
+                        <div class="about-text">
+                            <h2>Hi, I'm Suraj 🌟 — Web Developer & Creator</h2>
+                            <div class="pill">Code • Design • Affiliate</div>
+                            <p class="muted" style="margin-top:.6rem">
+                                Main Suraj hoon — passionate web developer jo simple aur powerful websites banata hun... Mujhe front-end animations, responsive layouts aur monetization se related solutions banana pasand hai.
+                                <br><br> Agar tum chahte ho ki main tumhare liye website, YouTube-ready short scripts, ya affiliate landing page banaun — mujhe message karo!
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr style="border:none;border-top:1px solid var(--border);margin:16px 0">
+
+                    <h3 style="margin:0 0 .6rem;color:var(--brand-2)">Quick Facts</h3>
+                    <p class="muted">
+                        • Experience: Learner + Creator mindset<br> • Skills: HTML • CSS • JS • Basic SEO • Affiliate Setup<br> • Availability: Open for small web projects and consulting
+                    </p>
+                </div>
+
+                <aside>
+                    <div class="card" style="padding:14px">
+                        <strong style="display:block">Contact & Offers</strong>
+                        <p class="small muted" style="margin:.5rem 0 1rem">Direct affiliate / collab links —</p>
+                        <div style="display:flex;flex-direction:column;gap:.5rem">
+                            <a class="cta" href="https://your-affiliate-link.com/product1" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">🛒</span> Buy Gadget A</a>
+                            <a class="cta" href="https://your-affiliate-link.com/product2" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">💡</span> Useful Tool B</a>
+                            <a class="cta" href="https://your-affiliate-link.com/product3" target="_blank" rel="noopener"><span class="icon" aria-hidden="true">🎧</span> Audio Gear C</a>
+                        </div>
+                        <p>😎 <span class="shiny-text">SuRaJ...◦•●❤♡ Wêß Ðêvêlðþêr ♡❤●•◦ 😎</span></p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="container">
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap">
+                <div>
+                    <h2 style="margin:0;color:var(--brand-2)">Blog & Updates 📝</h2>
+                    <p class="muted" style="margin:.4rem 0 0">Daily tips, guides and short tutorials — add / edit posts below.</p>
+                </div>
+                <div class="tag">Local & Editable</div>
+            </div>
+
+            <div style="margin-top:16px" class="two-col">
+                <!-- Left: posts -->
+                <main id="posts-column" aria-live="polite"></main>
+
+                <!-- Right: editor -->
+                <aside>
+                    <div style="padding:12px;border-radius:12px;border:1px solid var(--border);background:linear-gradient(180deg,color-mix(in oklab,var(--card) 94%,transparent),transparent)">
+                        <strong>Add New Post</strong>
+                        <div class="blog-editor" style="margin-top:.6rem">
+                            <input id="post-title" placeholder="Title (eg: How to Start Web Dev)" type="text" aria-label="Post title">
+                            <textarea id="post-content" placeholder="Write post content here..." aria-label="Post content"></textarea>
+                            <div style="display:flex;gap:.5rem;align-items:center">
+                                <button id="add-post" class="btn" style="padding:.5rem .8rem">Publish</button>
+                                <button id="clear-posts" class="cta" style="background:transparent">Clear All</button>
+                            </div>
+                            <div class="small muted" style="margin-top:.6rem">😎SuRaJ</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEALS -->
+    <section id="deals" class="container">
+        <div class="card">
+            <h2 style="margin:0 0 1rem;color:var(--brand-2)">🔥 Best Deals for You</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem">
+                <!-- Deal Card 1 -->
+                <div class="deal-card">
+                    <img loading="lazy" src="https://rukminim2.flixcart.com/image/612/612/kmuxevk0/book/h/o/y/advanced-web-development-with-react-original-imagfzbedzwdrsjx.jpeg?q=70" alt="Advanced Web Development with React book cover (Flipkart)">
+                    <h3 style="color:var(--brand)">Powered by Flipkart</h3>
+                    <p class="muted">Advanced Web Development with React (English, Paperback, Mohan Mehul)</p>
+                    <a class="cta" href="https://fktr.in/OP4vBH0" target="_blank" rel="noopener" style="margin-top:8px;display:inline-block">Buy Now</a>
+                </div>
+
+                <!-- Deal Card 2 -->
+                <div class="deal-card">
+                    <img loading="lazy" src="https://m.media-amazon.com/images/I/41iUJ+dFSKL._SY445_SX342_ControlCacheEqualizer_.jpg" alt="Web Design with HTML & CSS beginner guide book cover (Amazon)">
+                    <h3 style="color:var(--brand)">Powered by Amazon</h3>
+                    <p class="muted">Web Design With HTML & CSS : HTML & CSS Complete Beginner's Guide</p>
+                    <a class="cta" href="https://amzn.to/4fWsRAM" target="_blank" rel="noopener" style="margin-top:8px;display:inline-block">Buy Now</a>
+                </div>
+
+                <!-- Deal Card 3 -->
+                <div class="deal-card">
+                    <img loading="lazy" src="https://m.media-amazon.com/images/I/41t-pVrGX8L._SY445_SX342_ControlCacheEqualizer_.jpg" alt="Mastering HTML, CSS & JavaScript book cover (Amazon)">
+                    <h3 style="color:var(--brand)">Powered by Amazon</h3>
+                    <p class="muted">MASTERING HTML, CSS & Java Script Web Publishing</p>
+                    <a class="cta" href="https://amzn.to/3JGyDL6" target="_blank" rel="noopener" style="margin-top:8px;display:inline-block">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">© <span id="year"></span> Suraj. All rights reserved. • <span class="blink">Code se Creator</span>
+            <div class="social" style="margin-top:12px">
+                <a href="https://instagram.com/yourid" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://wa.me/yourid" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="https://facebook.com/yourid" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Responsive menu
+        const hamb = document.getElementById('hamb');
+        const menu = document.getElementById('primary-menu');
+        if (hamb) {
+            hamb.addEventListener('click', () => {
+                const open = menu.classList.toggle('open');
+                hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                if (menu.classList.contains('open')) {
+                    menu.classList.remove('open');
+                    hamb.setAttribute('aria-expanded', 'false');
+                }
+            }));
+        }
+
+        // Dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        /* SIMPLE BLOG (localStorage) */
+        const STORAGE_KEY = 'suraj_blog_posts_v1';
+        const postsColumn = document.getElementById('posts-column');
+        const titleInput = document.getElementById('post-title');
+        const contentInput = document.getElementById('post-content');
+        const addBtn = document.getElementById('add-post');
+        const clearBtn = document.getElementById('clear-posts');
+
+        // sample demo post (only if no posts exist)
+        const demoPost = {
+            id: 'p-demo',
+            title: 'How to Start Web Development in 2025 🚀',
+            content: `Web development ek rapidly growing field hai. Start karne ke liye:\n- HTML & CSS fundamentals\n- JavaScript basics\n- Build small projects\n- Upload on GitHub and share\nYeh blog main regular update karunga — stay tuned! 🌟`,
+            date: new Date().toLocaleString()
+        };
+
+        function readPosts() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                if (!raw) return [demoPost];
+                const parsed = JSON.parse(raw);
+                if (!Array.isArray(parsed) || parsed.length === 0) return [demoPost];
+                return parsed;
+            } catch (e) {
+                return [demoPost]
+            }
+        }
+
+        function savePosts(posts) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+        }
+
+        function renderPosts() {
+            const posts = readPosts();
+            postsColumn.innerHTML = '';
+            posts.slice().reverse().forEach(post => {
+                const el = document.createElement('article');
+                el.className = 'post';
+                el.innerHTML = `
+          <div class="meta">${post.date}</div>
+          <h3>${escapeHtml(post.title)}</h3>
+          <p>${convertMarkdownToHtml(escapeHtml(post.content))}</p>
+        `;
+                postsColumn.appendChild(el);
+            });
+        }
+
+        // FIX: better mini-markdown (bullets + line breaks)
+        function convertMarkdownToHtml(txt) {
+            return txt
+                .replace(/^\-\s+/gm, '• ') // lines starting with "- " → bullet dot
+                .replace(/\n/g, '<br>');
+        }
+
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        }
+
+        addBtn.addEventListener('click', () => {
+            const title = titleInput.value.trim();
+            const content = contentInput.value.trim();
+            if (!title || !content) {
+                alert('Please add a title and content for the post.');
+                return;
+            }
+            const posts = readPosts();
+            posts.push({
+                id: 'p-' + Date.now(),
+                title,
+                content,
+                date: new Date().toLocaleString()
+            });
+            savePosts(posts);
+            titleInput.value = '';
+            contentInput.value = '';
+            renderPosts();
+            // small toast effect
+            const prev = addBtn.textContent;
+            addBtn.textContent = 'Published ✓';
+            setTimeout(() => addBtn.textContent = prev, 1200);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            if (confirm('Are you sure? This will remove ALL local posts (demo will reappear).')) {
+                localStorage.removeItem(STORAGE_KEY);
+                renderPosts();
+            }
+        });
+
+        // initial render
+        renderPosts();
+
+        // Theme handling
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('site-theme', theme);
+        }
+        const savedTheme = localStorage.getItem('site-theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+    </script>
+</body>
+
+</html>
